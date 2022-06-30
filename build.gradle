@@ -1,0 +1,46 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "io.qameta.allure.gradle.allure:allure-plugin:2.10.0"
+    }
+}
+
+plugins {
+    id 'java'
+    id("io.qameta.allure") version "2.10.0"
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+
+    //ProjectConfig
+    implementation group: 'org.aeonbits.owner', name: 'owner-java8', version: '1.0.12'
+
+    //selenide
+    implementation group: 'com.codeborne', name: 'selenide', version: '5.25.1'
+    implementation group: 'org.selenide', name: 'selenide-selenoid', version: '1.0.0'
+
+    //Allure
+    testImplementation group: 'io.qameta.allure', name: 'allure-junit5', version: '2.13.8'
+    implementation group: 'io.qameta.allure', name: 'allure-rest-assured', version: '2.13.8'
+    implementation group: 'io.qameta.allure', name: 'allure-attachments', version: '2.13.8'
+    implementation group: 'io.qameta.allure', name: 'allure-selenide', version: '2.13.8'
+    testImplementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.30'
+}
+
+test {
+    useJUnitPlatform()
+}
