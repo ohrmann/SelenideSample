@@ -12,7 +12,7 @@ public class MainPage {
     SelenideElement searchResults = $(byId("search"));
     public void searchForString(String value) {
         searchInput.shouldBe(Condition.visible).sendKeys(value);
-        searchBtn.shouldBe(Condition.visible).click();
+        searchBtn.click();
         searchResults.shouldBe(Condition.visible);
     }
 }
